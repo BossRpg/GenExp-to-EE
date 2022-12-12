@@ -33,7 +33,7 @@ Gui, Add, Text, vStatus w222
 Gui, Add, Text, w222, Elysium Engine Server - Experience Generator
 
 Gui, -MinimizeBox -MaximizeBox
-Gui, Show, AutoSize Center
+Gui, Show, AutoSize Center, Experience Generator
 
 readIni:
 firstlvl := 0
