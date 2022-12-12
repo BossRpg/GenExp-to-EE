@@ -1,7 +1,7 @@
 # GenExp-to-EE
 Experience Generator to Elysium Engine Server
 
-EN-US:
+#EN-US:
 * Copy the executable into the Server folder in Elysium Source
 * If the server is located in a location that requires administrative privileges, run the tool in administrator mode.
 
