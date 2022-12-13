@@ -1,7 +1,7 @@
 # GenExp-to-EE
 Experience Generator to Elysium Engine Server
 
-![This is an image](/Sample.png)
+![This is an image](/Sample.png) ![This is an image](/Sample_InProcess.png)
 
 **EN-US:**
 * Copy the executable into the Server folder in Elysium Source
