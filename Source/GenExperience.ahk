@@ -8,7 +8,7 @@
 
 #SingleInstance Force
 Menu, Tray, NoIcon
-SetBatchLines, 1000
+SetBatchLines, -1
 SetWorkingDir %A_ScriptDir%
 
 Gui Add, Text,, LVL Initial (1 to 9.998):
