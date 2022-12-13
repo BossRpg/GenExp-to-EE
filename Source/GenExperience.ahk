@@ -11,23 +11,23 @@ Menu, Tray, NoIcon
 SetWorkingDir %A_ScriptDir%
 
 Gui Add, Text,, LVL Initial (1 to 9.998):
-Gui, Add, Edit, w220 vLVInit1 number Limit4
+Gui, Add, Edit, w220 vLVInit1 number Limit4 Disabled
 Gui, Add, UpDown, vLVInit2 Range1-9998
 
 Gui Add, Text,, LVL Max (2 to 9.999):
-Gui, Add, Edit, w220 vLVMax1 number Limit4
+Gui, Add, Edit, w220 vLVMax1 number Limit4 Disabled
 Gui, Add, UpDown, vLVMax2 Range2-9999
 
 Gui Add, Text,, EXP Initial (2 to 999.999):
-Gui, Add, Edit, w220 vExpInit1 number Limit6
+Gui, Add, Edit, w220 vExpInit1 number Limit6 Disabled
 Gui, Add, UpDown, vExpInit2 Range2-999999
 
 Gui Add, Text,, Multiplier - Formule: (Current += Exp * Mult):
 
-Gui, Add, Edit, w220 vMultip1 number Limit3
+Gui, Add, Edit, w220 vMultip1 number Limit3 Disabled
 Gui, Add, UpDown, vMultip2 Range1-999, 2
 
-Gui, Add, Button, w222 x9 gSave vBSubmit, Save
+Gui, Add, Button, w222 x9 gSave vBSubmit Disabled, Save
 
 Gui, Add, Text, vStatus w222
 Gui, Add, Text, w222, Elysium Engine Server - Experience Generator
@@ -55,12 +55,25 @@ Loop, %maxlvl%
 	}
 }
 mult := firstlvl+1
+
+GuiControl, Enable, LVInit1
+GuiControl, Enable, LVInit2
+GuiControl, Enable, LVMax1
+GuiControl, Enable, LVMax2
+GuiControl, Enable, ExpInit1
+GuiControl, Enable, ExpInit2
+GuiControl, Enable, Operand
+GuiControl, Enable, Multip1
+GuiControl, Enable, Multip2
+GuiControl, Enable, BSubmit
+
 IniRead, mult, experience.ini, EXPERIENCE, Exp%mult%, 60
-mult := (mult - firstexp)/firstexp
+mult := (mult - firstexp) / firstexp
 
 if (maxlvl > 1)
 {
 	GuiControl,, LVInit2, %firstlvl%
+	MsgBox %firstlvl%
 	GuiControl,, LVMax2, %maxlvl%
 	GuiControl,, ExpInit2, %firstexp%
 	GuiControl,, Multip2, %mult%
@@ -113,16 +126,6 @@ Loop, %LVMax2%
 Gui, Font, c000000
 Guicontrol, Font, Status
 
-GuiControl, Enable, LVInit1
-GuiControl, Enable, LVInit2
-GuiControl, Enable, LVMax1
-GuiControl, Enable, LVMax2
-GuiControl, Enable, ExpInit1
-GuiControl, Enable, ExpInit2
-GuiControl, Enable, Operand
-GuiControl, Enable, Multip1
-GuiControl, Enable, Multip2
-GuiControl, Enable, BSubmit
 Goto readIni
 
 GuiEscape:
