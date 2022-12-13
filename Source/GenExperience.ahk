@@ -8,6 +8,7 @@
 
 #SingleInstance Force
 Menu, Tray, NoIcon
+SetBatchLines, 1000
 SetWorkingDir %A_ScriptDir%
 
 Gui Add, Text,, LVL Initial (1 to 9.998):
@@ -33,7 +34,7 @@ Gui, Add, Text, vStatus w222
 Gui, Add, Text, w222, Elysium Engine Server - Experience Generator
 
 Gui, -MinimizeBox -MaximizeBox
-Gui, Show, AutoSize Center, Experience Generator
+Gui, Show, AutoSize Center Restore, Experience Generator
 
 readIni:
 firstlvl := 0
@@ -73,7 +74,6 @@ mult := (mult - firstexp) / firstexp
 if (maxlvl > 1)
 {
 	GuiControl,, LVInit2, %firstlvl%
-	MsgBox %firstlvl%
 	GuiControl,, LVMax2, %maxlvl%
 	GuiControl,, ExpInit2, %firstexp%
 	GuiControl,, Multip2, %mult%
